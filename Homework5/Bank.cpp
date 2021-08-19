@@ -87,16 +87,35 @@ void createBank()
 					double limitAmmount;
 					cout << "please enter the limit you want : " << endl;
 					cin >> limitAmmount;
-					LimitedBankAccount LimitedAccount{limitAmmount};
-					limitedAccounts.push_back(LimitedAccount);
+					//the problem?
+					try
+					{
+						LimitedBankAccount LimitedAccount{ limitAmmount };
+						limitedAccounts.push_back(LimitedAccount);
+					}
+					catch (exception& exc)
+					{
+						cerr << exc.what();
+					}
+					//LimitedBankAccount LimitedAccount{limitAmmount};
+					//limitedAccounts.push_back(LimitedAccount);
 				}
 				else if(firstchioce ==3)
 				{
 					double maxLimit;
 					cout << "please enter the Max limit you want : " << endl;
 					cin >> maxLimit;
-					overDraftAccount overAccount{maxLimit};
-					overDraftAccounts.push_back(overAccount);
+					try
+					{
+						overDraftAccount overAccount{ maxLimit };
+						//overDraftAccounts.push_back(overAccount);
+					}
+					catch (exception& exc)
+					{
+						cerr << exc.what();
+					}
+					//overDraftAccount overAccount{maxLimit};
+					//overDraftAccounts.push_back(overAccount);
 				}
 				else
 				{
@@ -106,7 +125,7 @@ void createBank()
 		}
 		if (initialchoice == 2)
 		{
-			cout << "please enter the name of the account owner: " << endl;
+			cout << "please enter the name of the account owner : " << endl;
 			string ownername;
 			cin >> ownername;
 			list<BankAccount>::iterator RegularIterator;
@@ -202,6 +221,12 @@ void createBank()
 				cout << " Account Balance: " << OverdraftIterator2->getbalance();
 			}
 		}
+		cout << "Please re enter a choice :" << endl;
+		cout << "press 1 to deposit money" << endl;
+		cout << "press 2 withdraw money" << endl;
+		cout << "press 3 to show current balance" << endl;
+		cout << "press 4 to get back to the main menu" << endl;
+		cin >> initialchoice;
 	}
 }
 int main()

@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Homework5.cpp" />
+    <ClCompile Include="Bank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BankAccount.hpp" />
